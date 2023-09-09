@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <form id="submit-form"
+    method="POST" 
+    action="">
+    <input name="Email" type="email" placeholder="Email" required>
+    <input name="Name" type="text" placeholder="Name" required>
+    <button type="submit">Send</button>
+  </form>
+  <script>
+    $("#submit-form").submit((e)=>{
+        e.preventDefault()
+        $.ajax({
+            url:"https://script.google.com/macros/s/AKfycbzqsaOhXo80yczQPjd4UEadT3JSpnLiXsXoJNZCEW2_sDrhOwA3l0bnroMSE2IiTW1JHQ/exec",
+            data:$("#submit-form").serialize(),
+            method:"post",
+            success:function (response){
+                alert("Form submitted successfully")
+                window.location.reload()
+                //window.location.href="https://google.com"
+            },
+            error:function (err){
+                alert("Something Error")
+
+            }
+        })
+    })
+</script>
+</body>
+</html>
